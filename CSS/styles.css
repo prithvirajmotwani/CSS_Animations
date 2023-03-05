@@ -1,0 +1,289 @@
+
+/* pac man styles */
+.containers {
+    height: 300px;
+    width: 300px;
+    border: 3px solid black;
+    margin: 10px;
+    float: left;
+}
+.upper-part{
+    height: 63%;
+    background-color:#179fb7;
+    width: 100%;
+    overflow: hidden;
+}
+.lower-part{
+    height: 37%;
+    background-color: #557153;
+    width: 100%;
+}
+
+.pacman{
+    position: relative;
+    top: 77px;
+    left: 40px;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+  
+  .dot {
+    margin: 10px;
+    background-color: black;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 135px;
+    left: 170px;  
+    box-shadow: 40px 0 0 black, 80px 0 0 black, 120px 0 0 black;
+    animation: feed 0.5s infinite linear;
+  }
+ 
+  .eye {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background-color: black;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px; 
+  }
+  
+  .pac-top {
+    background-color: yellow;
+    height: 50px;
+    width: 100px;
+    border-radius:100px 100px 0 0;
+    animation: spintop 0.5s infinite linear;
+  }
+  .pac-bottom {
+    background-color: yellow;
+    height: 50px;
+    width: 100px;
+    border-radius: 0 0 100px 100px;
+    animation: spinbottom 0.5s infinite linear;
+  }
+  
+@keyframes spinbottom {
+      0%  {transform: rotate(0deg);}
+    50%{transform: rotate(35deg);}	
+  }
+  
+@keyframes spintop {
+      0%  {transform: rotate(0deg);}
+      50%{transform: rotate(-35deg);}
+  }
+    
+@keyframes feed {
+    100% {
+        transform: translateX(-40px);
+    }
+}
+
+
+
+/* bouncing ball styles */
+.bouncing-ball {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  background-color: black;
+  position:relative;
+  left:285px;
+  top: 10px;
+  animation: bounce 3s infinite linear;
+}
+
+@keyframes bounce {
+  0%{
+    top: 50px;
+
+  }
+  20%,55%,90%{
+    top: 165px;
+    animation-timing-function: ease-out;
+  }
+
+  35%
+  {
+    top:70px;
+    animation-timing-function: ease-in;
+  }
+  70% {
+    top: 110px;
+    animation-timing-function: ease-in;
+
+  }
+  100%{
+    top: 140px;
+    left: 0%;
+    transform: translateX(-20px); 
+  }
+
+}
+
+
+/* ?GHOST */
+#pos{
+  position: relative;
+ }
+.ghost {
+  position: absolute;
+  top: 82%;
+  /* z-index: 99; */
+  left: 40%;
+  height: 70px;
+  width: 60px;
+  background: yellow;
+  margin-top: -35px;
+  border-top-left-radius: 70px;
+  border-top-right-radius: 70px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  animation: move 3s linear infinite, blinky 0.4s linear infinite; 
+}
+
+.ghost::before, .ghost::after {
+  position: absolute;
+  z-index: 99;
+  content: '';
+  top: 15px;
+  left: 4px;
+  height: 25px;
+  width: 20px;
+  border-radius: 50%;
+  background: white;
+}
+
+.ghost::after {
+  left: 28px;
+}
+
+.eyes::before, .eyes::after {
+  position: absolute;
+  content: '';
+  height: 10px;
+  width: 10px;
+  background: black;
+  border-radius: 100%;
+  top: 25px;
+  left: 5px;
+  z-index: 99;
+  animation: eyeLeft 0.7s linear infinite;
+}
+
+.eyes::after {
+animation: eyeRight 0.7s linear infinite;
+  z-index: 100;
+  left: 30px;
+}
+
+
+
+@keyframes move {
+  0%,100%{
+       left: 0%;
+   }
+
+  50% {
+       left: 80%;
+  }
+  
+}
+
+@keyframes blinky {
+  50% {
+      background: rgb(93, 3, 75);
+  }
+
+}
+
+@keyframes eyeLeft {
+  0%, 100% {
+      left: 5px; 
+  }
+  50% {
+      left: 10px;
+  }
+}
+
+@keyframes eyeRight {
+  0%, 100% {
+      left: 30px;
+  }
+  50% {
+      left: 35px;
+  }
+}
+
+
+/* sunrise */
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%;
+  height: 80px;
+  aspect-ratio: 1 / 1;  
+  position: relative;
+  top: 50px;
+  left: 110px;
+  animation: 3s linear 0s infinite alternate sunrise_set;
+}
+@keyframes sunrise_set {
+  from {
+    transform: translateY(150px);
+    background-color: red;
+    filter: brightness(75%);
+  }
+  to {
+    transform: translateY(0);
+    background-color: orange;
+  }
+}
+
+
+/* box */
+
+
+.box {
+  background-color: rebeccapurple;
+  border-radius: 10px;
+  width: 70px;
+  height: 70px;
+  animation: rotate 1s infinite linear, motion 4s infinite linear;
+  position: relative;
+ 
+}
+
+@keyframes rotate {
+  0%,100%{
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes motion{
+  0%{
+    left: 0%;
+    top: 0%;
+  }
+  25% {
+  left: 0%;
+  top: 60%
+  }
+  50%{
+    left: 80%;
+    top: 60%;
+  }
+  75% {
+    top: 0%;
+    left: 80%;
+  }
+  100%{
+    top: 0%;
+    left: 0%;
+  }
+}
